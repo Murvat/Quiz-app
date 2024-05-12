@@ -5,7 +5,7 @@ import useAxios from "../hooks/useAxios";
 const Settings = () => {
 
     const { response, error, loading } = useAxios({ url: 'api_category.php' })
-
+    console.log(useAxios({ url: 'api_category.php' }))
     if (loading) {
         return (
             <Box mt={20}>
