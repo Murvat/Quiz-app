@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 
 function useAxios({ url }) {
-    axios.defaults.baseURL = 'https://opentdb.com/'
+    axios.defaults.baseURL = 'https://opentdb.com'
     const [response, setResponse] = useState(null);
 
     const [error, setError] = useState('')

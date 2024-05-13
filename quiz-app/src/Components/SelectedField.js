@@ -12,6 +12,8 @@ const SelectedField = (props) => {
     const dispatch = useDispatch();
 
     const [value, setValue] = useState('')
+
+
     const handleChange = (e) => {
         setValue(e.target.value);
         switch (label) {

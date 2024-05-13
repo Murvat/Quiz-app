@@ -25,13 +25,13 @@ const reducer = (state = InitialState, action) => {
         case CHANGE_AMOUNT:
             return {
                 ...state,
-                question_amount: action.payload,
+                amount_of_question: action.payload,
 
             }
         case CHANGE_SCORE:
             return {
                 ...state,
-                question_score: action.payload,
+                score: action.payload,
 
             }
         case CHANGE_TYPE:
