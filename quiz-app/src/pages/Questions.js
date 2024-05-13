@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { QueryStatus } from "@reduxjs/toolkit/query";
 import { useNavigate } from "react-router-dom";
 import { handleScoreChange } from "../redux/actions";
+import { decode } from 'html-entities'
 
 
 
@@ -80,13 +81,13 @@ const Questions = () => {
                     Questions {questionIndex + 1}
                 </Typography>
                 <Typography mt={5}>
-                    {response.results[questionIndex].question}
+                    {decode(response.results[questionIndex].question)}
                 </Typography>
 
                 {option.map((data, id) => (
                     <Box mt={2} key={id}>
                         <Button onClick={handeClickAnswer}
-                            variant='contained' >{data}</Button>
+                            variant='contained' >{decode(data)}</Button>
                     </Box>
                 ))}
                 <Box mt={5}>
