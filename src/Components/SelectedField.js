@@ -8,14 +8,16 @@ import {
 } from '../redux/actions'
 
 const SelectedField = (props) => {
-    const { label, options } = props;
+    // label-names of labels:Category,Difficulty,Type
+    //options-return an array of options to choose[{..},{..}] 
+    const { label, options } = props;//
     const dispatch = useDispatch();
-
-    const [value, setValue] = useState('')
-
-
+    //value return an option i've chosen
+    const [value, setValue] = useState('')//
     const handleChange = (e) => {
         setValue(e.target.value);
+
+
         switch (label) {
             case 'Category':
                 dispatch(handleCategoryChange(e.target.value));
@@ -45,6 +47,7 @@ const SelectedField = (props) => {
             </Box>
         </>
     )
+
 };
 
 export default SelectedField
