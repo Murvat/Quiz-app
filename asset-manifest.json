@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/Quiz-app/static/js/main.a4eeb3e8.js",
-    "index.html": "/Quiz-app/index.html",
-    "main.a4eeb3e8.js.map": "/Quiz-app/static/js/main.a4eeb3e8.js.map"
+    "main.js": "/quiz-app/static/js/main.a4eeb3e8.js",
+    "index.html": "/quiz-app/index.html",
+    "main.a4eeb3e8.js.map": "/quiz-app/static/js/main.a4eeb3e8.js.map"
   },
   "entrypoints": [
     "static/js/main.a4eeb3e8.js"
