@@ -1,29 +1,33 @@
-import { Box, Button, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Button, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { handleAmountChange, handleScoreChange } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
+
+
 
 const FinalScreen = () => {
-    const dispatch = useDispatch();
-    const { score } = useSelector(state => state)
+    const disptach = useDispatch();
     const navigate = useNavigate();
+    const { score } = useSelector((state) => state);
 
-    const handleBackTSettings = () => {
-        dispatch(handleScoreChange(0));
-        dispatch(handleAmountChange(50));
-        navigate('/')
-    }
+    const handleBackToSettings = () => {
+        disptach(handleScoreChange(0));
+        disptach(handleAmountChange(50));
+        navigate("/");
+    };
+
     return (
-
         <Box mt={30}>
-            <Typography varian='h3' fontWeight='bold' mb={3}>
+            <Typography variant="h3" fontWeight="bold" mb={3}>
                 Final Score {score}
             </Typography>
-            <Button onClick={handleBackTSettings} variant='outlined'>
+            <Button onClick={handleBackToSettings} variant="outlined">
                 back to settings!
             </Button>
         </Box>
-    )
-}
+    );
+};
 
 export default FinalScreen;
