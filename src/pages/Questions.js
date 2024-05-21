@@ -2,8 +2,7 @@ import { Button, CircularProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { decode } from "html-entities";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import { handleScoreChange } from "../redux/actions";
@@ -39,7 +38,7 @@ const Questions = () => {
     const [options, setOptions] = useState([]);
 
     useEffect(() => {
-        if (response?.results.length) {
+        if (response?.results && response.results.length > 0) {
             const question = response.results[questionIndex];
             let answers = [...question.incorrect_answers];
             answers.splice(
@@ -59,6 +58,14 @@ const Questions = () => {
         );
     }
 
+    if (!response?.results || response.results.length === 0) {
+        return (
+            <Box mt={20}>
+                <Typography variant="h6">No questions available.</Typography>
+            </Box>
+        );
+    }
+
     const handleClickAnswer = (e) => {
         const question = response.results[questionIndex];
         if (e.target.textContent === question.correct_answer) {
@@ -74,7 +81,7 @@ const Questions = () => {
 
     return (
         <Box>
-            <Typography variant="h4">Questions {questionIndex + 1}</Typography>
+            <Typography variant="h4">Question {questionIndex + 1}</Typography>
             <Typography mt={5}>
                 {decode(response.results[questionIndex].question)}
             </Typography>
